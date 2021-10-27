@@ -32,10 +32,7 @@
 
 function valideNumero(){
     var num = document.getElementById("telephone").value;
-    if(num.length != 10 || isNaN(num) )
-        
-
-    {
+    if (num.length != 10 || num.charAt(0) != 0  (num.charAt(1) != 6 || num.charAt(1) != 7)) {
         alert ("Veuillez entrez un numéro valide svp !");
     }
 }
