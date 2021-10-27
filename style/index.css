@@ -1,0 +1,23 @@
+.body {
+    background-color: rgb(191, 232, 240);
+    transition: background-color 1s ease;
+        background: linear-gradient(790deg, #FC9DAB, #C586D9, #A5A1F0, #86BAD9, #9DFADB);
+        background-size: auto;
+        background-size: 500% 250%;
+        animation: degradeFond 15s ease infinite;
+}
+
+table {
+    /*margin-left: -200px;   - moitié de la largeur */
+   /* position: absolute;
+    left: 50%;*/
+    margin : 100px;
+   /* width: 50%;*/
+    align-content: center;
+}
+
+td, tr {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: separate;
+}
