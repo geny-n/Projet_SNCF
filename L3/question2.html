@@ -53,7 +53,7 @@
                 <label class="quest"> Vous sentez-vous en sécurité  en toute circonstance ?</label>
                  </br><br>
             <label>
-                <input type="radio" name="qust" id="choix1" value="Oui"  checked>
+                <input type="radio" name="qust" id="choix1" value="Oui" onclick="q1=20" >
                 <span class="design"></span>
                 <span class="text">Oui</span>
             </label>
@@ -137,7 +137,7 @@ function getCookie(name){
     }
 
   }
-  function calcul4(){
+  function calcul4(form1){
   var oSelect = document.getElementById("select").value;
     document.cookie="_note4=" + oSelect;
   }
