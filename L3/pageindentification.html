@@ -1,119 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\L3\Projet_SNCF\style\style_page_identification.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\L3\Projet_SNCF\style\style_page_identification.css"
+        media="all" />
     <title>Document</title>
 </head>
 
 <script>
-
-
-
-
-  function valideNom(){
-    var nom =document.getElementById("nom").value;
-    if(nom.length<3 ||nom.length>20){
-        alert("Votre nom n'est pas valide !");
+    /*  function valideNom() {
+        var nom = document.getElementById("nom").value;
+        if (nom.length < 3 || nom.length > 20) {
+            alert("Votre nom n'est pas valide !");
+        }
     }
-}
 
 
-  function validePrenom(){
-    var Prenom =document.getElementById("Prenom").value;
-    if(Prenom.length<3 ||Prenom.length>20){
-        alert("Votre Prénom n'est pas valide !");
+    function validePrenom() {
+        var Prenom = document.getElementById("Prenom").value;
+        if (Prenom.length < 3 || Prenom.length > 20) {
+            alert("Votre Prénom n'est pas valide !");
+        }
+    }*/
+
+    function valideNom() {
+        var nom = document.getElementById("nom").value;
+        nom = nom.toUpperCase();
+        document.getElementById("nom").value = nom;
     }
-}
 
-
-
-function valideNumero(){
-    var num = document.getElementById("telephone").value;
-    if (num.length != 10 || num.charAt(0) != 0  (num.charAt(1) != 6 || num.charAt(1) != 7)) {
-        alert ("Veuillez entrez un numéro valide svp !");
+    function validePrenom() {
+        var prenom = document.getElementById("Prenom").value;
+        prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
+        document.getElementById("Prenom").value = prenom;
     }
-}
 
 
-function valideAge(){
-    var age = document.getElementById("age").value;
-    if(age.length< 2 )
-    {
-        alert ("Votre age n'est pas valide !");
+    function valideNumero() {
+        var num = document.getElementById("telephone").value;
+        if (num.length != 10 || num.charAt(0) != 0(num.charAt(1) != 6 || num.charAt(0) != 0(num.charAt(1) != 6))) {
+            alert("Veuillez entrez un numéro valide svp !");
+        }
     }
-}
 
-
-function traiterEmail(){
-                var mail = document.getElementById("email").value;         
-               
-             if(mail.indexOf("@") == -1 || mail.length < 6 || mail.indexOf(".")== -1) {
-            alert ("Entrez un email valide");
-            }else{
-                mail.value.trim();
-            }
-
-   }
-
-
-   
-function validation(){
-    var nom = document.getElementById("nom");
-    var prenom = document.getElementById("Prenom");
-    var telephone= document.getElementById("telephone");
-    var age = document.getElementById("age");
-    var email = document.getElementById("email");
-    var sexe = document.getElementById("sexe");
-  
-
-    if(nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity.valueMissing || email.validity.valueMissing || sexe.validity.valueMissing)
-    {
-        alert ("veuillez remplir tout les champs")
-    }else{
-        document.location.href="question1.html"
+    function valideNumero(inputtxt) {
+        var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if (inputtxt.value.match(phoneno)) {
+            return true;
+        } else {
+            alert("message");
+            return false;
+        }
     }
-   
-
-}
 
 
-
-
-var myCookies= [];
-function  Cookies(name)
-{ 
-
-    myCookies ["_nom"]  = document.getElementById ("nom").value;
-	myCookies ["_prenom"]  = document.getElementById ("Prenom").value;
-    myCookies ["_sexe"]=document.getElementById("sexe").value;
-    myCookies ["_age"]=document.getElementById("age").value;
-	myCookies ["_telephone"]  = document.getElementById ("telephone").value;
-    myCookies ["_email"]  = document.getElementById ("email").value;
-    myCookies ["note"]  ="0" ;
-    myCookies ["_note"]  ="0" ;
-    myCookies ["_note2"]  ="0" ;
-    myCookies ["_note3"]  ="0" ;
-    myCookies ["_note4"]  ="0" ;
-    myCookies ["_note5"]  ="0" ;
-    myCookies ["_note6"]  ="0" ;
-    myCookies["moyenne"]="0";
-
-    // Démarrer la section réutilisable
-    // Démarrer la section réutilisable
-    document.cookie  =  "" ;
-    var  expiresAttrib  =  new  Date( Date.now() + 60 * 1000 ).toString();
-    var  cookieString  =  "" ;
-    for  ( var  key  in  myCookies )
-    {
-        cookieString  =  key+"="+myCookies[key]+";"+expiresAttrib+";" ;
-        document.cookie = cookieString ;
+    function valideAge() {
+        var age = document.getElementById("age").value;
+        if (age.length < 2) {
+            alert("Votre age n'est pas valide !");
+        }
     }
-}
 
 
+    function traiterEmail() {
+        var mail = document.getElementById("email").value;
+
+        if (mail.indexOf("@") == -1 || mail.length < 6 || mail.indexOf(".") == -1) {
+            alert("Entrez un email valide");
+        } else {
+            mail.value.trim();
+        }
+
+    }
+
+
+
+    function validation() {
+        var nom = document.getElementById("nom");
+        var prenom = document.getElementById("Prenom");
+        var telephone = document.getElementById("telephone");
+        var age = document.getElementById("age");
+        var email = document.getElementById("email");
+        var sexe = document.getElementById("sexe");
+
+
+        if (nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity
+            .valueMissing || email.validity.valueMissing || sexe.validity.valueMissing) {
+            alert("veuillez remplir tout les champs")
+        } else {
+            document.location.href = "question1.html"
+        }
+
+
+    }
+
+
+
+
+    var myCookies = [];
+
+    function Cookies(name) {
+
+        myCookies["_nom"] = document.getElementById("nom").value;
+        myCookies["_prenom"] = document.getElementById("Prenom").value;
+        myCookies["_sexe"] = document.getElementById("sexe").value;
+        myCookies["_age"] = document.getElementById("age").value;
+        myCookies["_telephone"] = document.getElementById("telephone").value;
+        myCookies["_email"] = document.getElementById("email").value;
+        myCookies["note"] = "0";
+        myCookies["_note"] = "0";
+        myCookies["_note2"] = "0";
+        myCookies["_note3"] = "0";
+        myCookies["_note4"] = "0";
+        myCookies["_note5"] = "0";
+        myCookies["_note6"] = "0";
+        myCookies["moyenne"] = "0";
+
+        // Démarrer la section réutilisable
+        // Démarrer la section réutilisable
+        document.cookie = "";
+        var expiresAttrib = new Date(Date.now() + 60 * 1000).toString();
+        var cookieString = "";
+        for (var key in myCookies) {
+            cookieString = key + "=" + myCookies[key] + ";" + expiresAttrib + ";";
+            document.cookie = cookieString;
+        }
+    }
 </script>
 
 
@@ -122,77 +137,79 @@ function  Cookies(name)
 
 
 
-<body style= "background :fixed radial-gradient(crimson, skyblue);">
-    
+<body style="background :fixed radial-gradient(crimson, skyblue);">
+
     <h2>Formulaire d'identification : </h2>
     <form action="" name="pageidentification" method="post">
-  <p><i>Complétez le formulaire. Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
-  <fieldset>
-    <legend>Contact</legend>
+        <p><i>Complétez le formulaire. Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
+        <fieldset>
+            <legend>Contact</legend>
 
 
 
-      <label for="nom">Nom <em>*</em></label>
-      <input id="nom" placeholder="Durand"  required="" onblur="valideNom()"><br>
+            <label for="nom">Nom <em>*</em></label>
+            <input id="nom" placeholder="Durand" required="" onblur="valideNom()"><br>
 
 
-     <!--  // placeholder: indication grisée 
+            <!--  // placeholder: indication grisée 
       //required: il faut renseigner le champs sinon la validation est bloquée
       //autofocus: le curseur est positionné dans cette case au chargement de la page -->
-      
-      <label for="Prenom">Prénom <em>*</em></label>
-      <input id="Prenom" placeholder="Albert"  required="" onblur="validePrenom()"><br>
-  
+
+            <label for="Prenom">Prénom <em>*</em></label>
+            <input id="Prenom" placeholder="Albert" required="" onblur="validePrenom()"><br>
 
 
-      <label for="telephone">Portable</label>
-      <input id="telephone"  placeholder="07xxxxxxxx" maxlength="10" onblur="valideNumero()" ><br><br>
 
-     <!--  // type="tel": bascule le clavier sur un smartphone
+            <label for="telephone">Portable</label>
+            <input id="telephone" placeholder="07xxxxxxxx" maxlength="10" onblur="valideNumero()"><br><br>
+
+            <!--  // type="tel": bascule le clavier sur un smartphone
       // pattern: expression régulière à vérifier pour pouvoir valider -->
 
 
-      
 
 
 
-      <label for="email">Email <em>*</em></label>
-      <input id="email" type="email" placeholder="" required="" onblur="valideEmail()"><br>
-  </fieldset>
-  <fieldset>
-    <legend>Information personnelles</legend>
+
+            <label for="email">Email <em>*</em></label>
+            <input id="email" type="email" placeholder="" required="" onblur="valideEmail()"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Information personnelles</legend>
 
 
-      <label for="age">Age<em>*</em></label>
-      <input id="age" type="number" placeholder="xx"   required=""  onblur="valideAge()"><br>
+            <label for="age">Age<em>*</em></label>
+            <input id="age" type="number" placeholder="xx" required="" onblur="valideAge()"><br>
 
 
-     <!--  // type="number": bascule le clavier sur un smartphone -->
-     
-      <label for="sexe">Sexe</label>
-      <select id="sexe">
-        <option value="F" name="sexe">Femme</option>
-        <option value="H" name="sexe">Homme</option>
-      </select><br>
+            <!--  // type="number": bascule le clavier sur un smartphone -->
+
+            <label for="sexe">Sexe</label>
+            <select id="sexe">
+                <option value="F" name="sexe">Femme</option>
+                <option value="H" name="sexe">Homme</option>
+            </select><br>
 
 
-      <label for="comments">Êtes-vous membre prenium de SOCIAL CLUB ?</label>
-      <textarea id="comments"></textarea>
+            <label for="comments">Êtes-vous membre prenium de SOCIAL CLUB ?</label>
+            <textarea id="comments"></textarea>
 
 
-  </fieldset>
- 
-  <fieldset>
-    <legend>Depuis combien de temps êtes vous membre prenium de SOCIAL CLUB ( si vous l'êtes )</legend>
-    <label for="chatnoir"><input id="chatnoir" type="checkbox" name="binet" value="chat">0</label>
-    <label for="oenologie"><input id="oenologie" type="checkbox" name="binet" value="vin">1 semaine </label>
-    <label for="bobar"><input id="bobar" type="checkbox" name="binet" value="bob">1 semaine</label>
-    <label for="Xpara"><input id="Xpara" type="checkbox" name="binet" value="para">1 mois</label>
-    <label for="khomiss"><input id="khomiss" type="checkbox" name="binet" value="???"> 3 mois</label>
-    <label for="politix"><input id="politix" type="checkbox" name="binet" value="politix"> 6 mois</label>
-    <label for="raid"><input id="raid" type="checkbox" name="binet" value="raid">1 à 2 ans</label>
-    <label for="Xsoirees"><input id="Xsoirees" type="checkbox" name="binet" value="fiesta">2 à 5 ans</label>
-  </fieldset>
-  <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Valider" onclick="validation(), Cookies()" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Depuis combien de temps êtes vous membre prenium de SOCIAL CLUB ( si vous l'êtes )</legend>
+            <label for="chatnoir"><input id="chatnoir" type="checkbox" name="binet" value="chat">0</label>
+            <label for="oenologie"><input id="oenologie" type="checkbox" name="binet" value="vin">1 semaine </label>
+            <label for="bobar"><input id="bobar" type="checkbox" name="binet" value="bob">1 semaine</label>
+            <label for="Xpara"><input id="Xpara" type="checkbox" name="binet" value="para">1 mois</label>
+            <label for="khomiss"><input id="khomiss" type="checkbox" name="binet" value="???"> 3 mois</label>
+            <label for="politix"><input id="politix" type="checkbox" name="binet" value="politix"> 6 mois</label>
+            <label for="raid"><input id="raid" type="checkbox" name="binet" value="raid">1 à 2 ans</label>
+            <label for="Xsoirees"><input id="Xsoirees" type="checkbox" name="binet" value="fiesta">2 à 5 ans</label>
+        </fieldset>
+        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Valider"
+            onclick="validation(), Cookies()" />
 </body>
+
 </html>
