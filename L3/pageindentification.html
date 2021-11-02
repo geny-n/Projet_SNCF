@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\L3\Projet_SNCF\style\style_page_identification.css"
+    <link rel="stylesheet" type="text/css" href="C:\Users\giova\Documents\GitHub\Projet_SNCF\style\style_page_identification.css"
         media="all" />
     <title>Document</title>
 </head>
@@ -65,7 +65,7 @@
     }
 
 
-    function traiterEmail() {
+    function valideEmail() {
         var mail = document.getElementById("email").value;
 
         if (mail.indexOf("@") == -1 || mail.length < 6 || mail.indexOf(".") == -1) {
@@ -89,7 +89,7 @@
 
         if (nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity
             .valueMissing || email.validity.valueMissing || sexe.validity.valueMissing) {
-            alert("veuillez remplir tout les champs")
+            alert("veuillez remplir tous les champs")
         } else {
             document.location.href = "question1.html"
         }
@@ -134,21 +134,25 @@
 
 
 
-
-
-
-<body style="background :fixed radial-gradient(crimson, skyblue);">
+    <!--<body style="background :fixed radial-gradient(crimson, skyblue);"-->
 
     <h2>Formulaire d'identification : </h2>
-    <form action="" name="pageidentification" method="post">
+
+    <form action="" name="pageidentification" method="post" id="form">
+
         <p><i>Complétez le formulaire. Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
         <fieldset>
-            <legend>Contact</legend>
+            <legend>Information</legend>
 
-
+        <div class="form-control">
+            <label for="sexe">Sexe</label>
+            <select id="sexe">
+                <option value="F" name="sexe">Femme</option>
+                <option value="H" name="sexe">Homme</option>
+            </select><br><br>
 
             <label for="nom">Nom <em>*</em></label>
-            <input id="nom" placeholder="Durand" required="" onblur="valideNom()"><br>
+            <input id="nom" placeholder="Entrez votre nom" required="" onblur="valideNom()"><br><br>
 
 
             <!--  // placeholder: indication grisée 
@@ -156,46 +160,38 @@
       //autofocus: le curseur est positionné dans cette case au chargement de la page -->
 
             <label for="Prenom">Prénom <em>*</em></label>
-            <input id="Prenom" placeholder="Albert" required="" onblur="validePrenom()"><br>
-
+            <input id="Prenom" placeholder="Entrez votre prénom" required="" onblur="validePrenom()"><br><br>
+            
+            <label for="age">Age<em>*</em></label>
+            <input id="age" type="number" placeholder="xx" required="" onblur="valideAge()"><br><br>
 
 
             <label for="telephone">Portable</label>
-            <input id="telephone" placeholder="07xxxxxxxx" maxlength="10" onblur="valideNumero()"><br><br>
+            <input id="telephone" placeholder="Entrez votre numéro" maxlength="10" onblur="valideNumero()"><br><br>
 
             <!--  // type="tel": bascule le clavier sur un smartphone
       // pattern: expression régulière à vérifier pour pouvoir valider -->
 
 
 
-
-
-
             <label for="email">Email <em>*</em></label>
-            <input id="email" type="email" placeholder="" required="" onblur="valideEmail()"><br>
+            <input id="email" type="email" placeholder="Entrez votre email" required="" onblur="valideEmail()"><br>
+        
+        </div>
         </fieldset>
-        <fieldset>
-            <legend>Information personnelles</legend>
+        
+        <br>
+        <input type="button" name="valid_inscr" id="button" class="input_form" value="Valider"
+            onclick="validation(), Cookies()" />  
 
-
-            <label for="age">Age<em>*</em></label>
-            <input id="age" type="number" placeholder="xx" required="" onblur="valideAge()"><br>
-
-
-            <!--  // type="number": bascule le clavier sur un smartphone -->
-
-            <label for="sexe">Sexe</label>
-            <select id="sexe">
-                <option value="F" name="sexe">Femme</option>
-                <option value="H" name="sexe">Homme</option>
-            </select><br>
-
-
+        <!--<fieldset>
+            
+              // type="number": bascule le clavier sur un smartphone 
+ 
             <label for="comments">Êtes-vous membre prenium de SOCIAL CLUB ?</label>
             <textarea id="comments"></textarea>
-
-
-        </fieldset>
+       
+        </fieldset> 
 
         <fieldset>
             <legend>Depuis combien de temps êtes vous membre prenium de SOCIAL CLUB ( si vous l'êtes )</legend>
@@ -207,9 +203,9 @@
             <label for="politix"><input id="politix" type="checkbox" name="binet" value="politix"> 6 mois</label>
             <label for="raid"><input id="raid" type="checkbox" name="binet" value="raid">1 à 2 ans</label>
             <label for="Xsoirees"><input id="Xsoirees" type="checkbox" name="binet" value="fiesta">2 à 5 ans</label>
-        </fieldset>
-        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Valider"
-            onclick="validation(), Cookies()" />
+        </fieldset> 
+    -->
+        
 </body>
 
 </html>
