@@ -13,9 +13,18 @@
 <script>
 
     function valideNom() {
-        var nom = document.getElementById("nom").value;
-        nom = nom.toUpperCase();
-        document.getElementById("nom").value = nom;
+        var nom = (document.getElementById("nom").value);
+        nom = nom.toUpperCase(); 
+        if (isNaN(nom)){
+            document.getElementById("nom").value = nom;
+            document.getElementById("nom").style.borderColor="green";
+        }
+        else{
+            alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte.");
+            document.getElementById("nom").style.borderColor="red";
+            
+        }
+        
     }
 
     function validePrenom() {
@@ -24,16 +33,27 @@
         /*if(valid_prenom.test(prenom)){
             alert('Invalid name given.');
         }*/
+       
         prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
         document.getElementById("prenom").value = prenom;
+        if (isNaN(parseInt(prenom))){
+            document.getElementById("prenom").value = prenom;
+            document.getElementById("prenom").style.borderColor="green";
+        }
+        else{
+            alert("Merci de ne pas rentrer de nombre mais uniquement votre prénom en texte.");
+            document.getElementById("prenom").style.borderColor="red";
+        }
+
     }
 
 
     function valideNumero() {
         var num = document.getElementById("telephone").value;
-        if (num.length != 10 || num.charAt(0) != 0(num.charAt(1) != 6 || num.charAt(0) != 0(num.charAt(1) != 6))) {
+        if (num.length != 10 || num.charAt(0) != 0 || (num.charAt(1) != 6 && num.charAt(1) != 7)) {
             alert("Veuillez entrer un numéro valide !");
         }
+ 
     }
 
 
@@ -57,13 +77,14 @@
                 }
                 var cpt1 = 0, ctp =0;
                 for(let i = 0; i <email.length;i++) {
-                    if (email.charAt(i) == '@') cpt1++
-                    else if(email.charAt(i)=='.') ctp2++
+                    if (email.charAt(i) == '@') cpt1++;
+                    else if(email.charAt(i)=='.') ctp2++;
                 }
                 if(cpt1 == 1 && ctp2 >= 1) {
-                    document.getElementById("email").style.background
+                    document.getElementById("email").style.background;
                 }
             }
+            
 
 
 
@@ -77,9 +98,9 @@
 
         if (nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity
             .valueMissing || email.validity.valueMissing || sexe.validity.valueMissing) {
-            alert("veuillez remplir tous les champs")
+            alert("veuillez remplir tous les champs");
         } else {
-            document.location.href = "question1.html"
+            document.location.href = "question1.html";
         }
 
 
@@ -151,7 +172,7 @@
             <input id="age" type="number" placeholder="Votre âge" required="" onblur="valideAge()"><br><br>
 
 
-            <label for="telephone">Portable</label>
+            <label for="telephone">Portable<em>*</em></label>
             <input id="telephone" placeholder="Entrez votre numéro" maxlength="10" onblur="valideNumero()"><br><br>
 
 
