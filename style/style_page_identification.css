@@ -52,8 +52,8 @@ input[type=submit] {
 /* Styling the Body element i.e. Color,
         Font, Alignment */
 body {
- /* background-image: url(../images/cafe.jpg);*/
-  background: url(../images/cafe.jpg) no-repeat center center fixed; 
+  /* background-image: url(../images/cafe.jpg);*/
+  background: url(../images/cafe.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -125,4 +125,12 @@ fieldset {
 .form-quest {
   text-align: center;
   margin-bottom: 25px;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 50px;
+  height: 250px;
+  text-align: center;
+  font-size: 25px;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,42 @@
     <link rel="stylesheet" type="text/css" href="../style/style_page_identification.css" />
     <title>Commentaire</title>
 </head>
+
 <body>
     <script>
+        function psuivant() {
+            document.location.href = "noteEnquete.html"
+        }
 
+        function precedent() {
+            document.location.href = "question3.html"
+        }
+
+        function envoyer() {
+            alert("Nous avons bien pris en compte votre formulaire.");
+            document.location.href = "tableaubord.html"
+        }
     </script>
-    <p>Resultat Final</p>
+    <h2>Resultat Final</h2>
+    <div class="form-quest">
+        <form>
+            <fieldset>
+                <legend>Votre moyenne </legend>
+                <br><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Commentaire</legend>
+                <textarea id="Commentaire" fname="" maxlength="1000" placeholder="Maximum caractère 1000"></textarea>
+            </fieldset>
+            <input type="button" name="valid_retour" id="bouton_envoi" class="input_form" value="Retour"
+                onclick="precedent(),retour()" />
+
+            <input type="button" name="valid_envoyer" id="bouton_envoi" class="input_form" value="Envoyer"
+                onclick="envoyer(),psuivant()" />
+
+        </form>
+    </div>
 </body>
+
 </html>
