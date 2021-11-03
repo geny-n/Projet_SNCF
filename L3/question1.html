@@ -10,73 +10,95 @@
 </head>
 
 <body>
-<p>bienvenue</p>
+    <p>bienvenue</p>
     <!--Debut JS-->
     <script>
-      
         function psuivant() {
             document.location.href = "question2.html"
         }
 /*
-        function getCookie(name) {
-        if (document.cookie.length == 0)
-          return null;
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
 
-        var regSepCookie = new RegExp('(; )', 'g');
-        var cookies = document.cookie.split(regSepCookie);
+        function checkCookie() {
+            let user = getCookie("_prenom");
+            if (user != "") {
+                alert("Welcome again " + user);
+            }
+        }
 
-        for (var i = 0; i < cookies.length; i++) {
-          var regInfo = new RegExp('=', 'g');
-          var infos = cookies[i].split(regInfo);
-          if (infos[0] == name) {
-            return unescape(infos[1]);
+        /*
+                function getCookie(name) {
+                if (document.cookie.length == 0)
+                  return null;
+
+                var regSepCookie = new RegExp('(; )', 'g');
+                var cookies = document.cookie.split(regSepCookie);
+
+                for (var i = 0; i < cookies.length; i++) {
+                  var regInfo = new RegExp('=', 'g');
+                  var infos = cookies[i].split(regInfo);
+                  if (infos[0] == name) {
+                    return unescape(infos[1]);
+                  }
+                }
+                return null;
+              }
+              /*on insere les valeur de cookies dans les input dont les ID sont 'session-nom' et 'session-prenom'*/
+        /*var prenom = document.getElementById('span1').innerHTML = getCookie('_prenom');
+        var nom = document.getElementById('span2').innerHTML = getCookie('_nom');
+
+
+
+
+
+
+        function calcul1(form1) {
+          if (form1.qust[0].checked) {
+            document.cookie = "_note=" + parseInt(1);
+          } else if (form1.qust[1].checked) {
+            document.cookie = "_note=" + parseFloat(2);
+          } else {
+            document.cookie = "_note=" + parseFloat(4);
           }
-        }
-        return null;
-      }
-      /*on insere les valeur de cookies dans les input dont les ID sont 'session-nom' et 'session-prenom'*/
-      /*var prenom = document.getElementById('span1').innerHTML = getCookie('_prenom');
-      var nom = document.getElementById('span2').innerHTML = getCookie('_nom');
 
-
-
-
-
-
-      function calcul1(form1) {
-        if (form1.qust[0].checked) {
-          document.cookie = "_note=" + parseInt(1);
-        } else if (form1.qust[1].checked) {
-          document.cookie = "_note=" + parseFloat(2);
-        } else {
-          document.cookie = "_note=" + parseFloat(4);
-        }
-
-      }
-
-
-      function calcul2(form1) {
-        if (form1.rating[0].checked) {
-          document.cookie = "_note2=" + parseInt(5);
-        } else if (form1.rating[1].checked) {
-          document.cookie = "_note2=" + parseFloat(4);
-        } else if (form1.rating[2].checked) {
-          document.cookie = "_note2=" + parseFloat(3);
-        } else if (form1.rating[3].checked) {
-          document.cookie = "_note2=" + parseFloat(2);
-        } else {
-          document.cookie = "_note2=" + parseFloat(1);
         }
 
 
-      }
+        function calcul2(form1) {
+          if (form1.rating[0].checked) {
+            document.cookie = "_note2=" + parseInt(5);
+          } else if (form1.rating[1].checked) {
+            document.cookie = "_note2=" + parseFloat(4);
+          } else if (form1.rating[2].checked) {
+            document.cookie = "_note2=" + parseFloat(3);
+          } else if (form1.rating[3].checked) {
+            document.cookie = "_note2=" + parseFloat(2);
+          } else {
+            document.cookie = "_note2=" + parseFloat(1);
+          }
 
-      function moy() {
-        var note = parseInt(getCookie('_note'));
-        var note = note + parseInt(getCookie('_note2'));
-        document.cookie = "note=" + note;
-      }
-      */
+
+        }
+
+        function moy() {
+          var note = parseInt(getCookie('_note'));
+          var note = note + parseInt(getCookie('_note2'));
+          document.cookie = "note=" + note;
+        }
+        */
     </script>
     <!--Fin JS-->
 
@@ -155,42 +177,11 @@
             </div>
         </fieldset>
         <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Suivant"
-        onclick="psuivant(),calcul1(form1),calcul2(form1),moy()" />
+            onclick="psuivant()" />
     </form>
-        <!--Fin html-form-->
+    <!--Fin html-form-->
 
-    <script>
-        function validation()
-        {
-            document.location.href = "question2.html"
-        }
-       
-    </script>
-    <input type="button" value="Suivant" onclick="validation()";>
+    
 </body>
 
-<script>
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function checkCookie() {
-  let user = getCookie("_prenom");
-  if (user != "") {
-    alert("Welcome again " + user);
-  }
-}
-</script>
 </html>
