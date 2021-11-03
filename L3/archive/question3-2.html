@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style_page_identification.css" />
+    <title>Enquete 3</title>
+</head>
+
+<body>
+    <script>
+        function psuivant() {
+            document.location.href = "commentaire.html"
+        }
+
+        function precedent() {
+            document.location.href = "question2.html"
+        }
+    </script>
+    <form>
+        <fieldset>
+            <legend>Question 5</legend>
+            <p>Comment trouvez le prix de nos services prenium ?</p>
+            <div class="form-quest">
+                <input type="radio" id="choix1_1" name="qust" value="1">
+                <label for="choix1_1">Inacceptable</label>
+                <input type="radio" id="choix1_2" name="qust" value="2">
+                <label for="choix1_2">Cher</label>
+                <input type="radio" id="choix1_3" name="qust" value="3">
+                <label for="choix1_3">Conveable</label>
+
+                <input type="radio" id="choix1_4" name="qust" value="4">
+                <label for="choix1_4">Bon marché</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Question 6 </legend>
+            <p>Que pensez vous de l'actualisation et des propositions des événements nouveau </p>
+            <div class="form-quest">
+                <select id="select" name="liste">
+                    <option value="5">Excellent</option>
+                    <option value="4">Bon</option>
+                    <option value="3">Moyen</option>
+                    <option value="2">Faible</option>
+                    <option value="1">Mauvais</option>
+                </select>
+            </div>
+        </fieldset>
+            <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="precedent" onclick="precedent()" />
+            <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Suivant"
+            onclick="psuivant(),calcul1(form1),calcul2(form1),moy()" />
+</body>

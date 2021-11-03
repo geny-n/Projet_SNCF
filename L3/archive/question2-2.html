@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style_page_identification.css" />
+    <title>Enquete 2</title>
+</head>
+
+<body>
+    <script>
+        function psuivant() {
+            document.location.href = "question3.html"
+        }
+
+        function precedent() {
+            document.location.href = "question1.html"
+        }
+    </script>
+    <form>
+        <fieldset>
+            <legend>Question 3</legend>
+            <p>Vous sentez-vous en sécurité en toute circonstance ?</p>
+            <div class="form-quest">
+                <input type="radio" id="choix1_1" name="qust" value="1">
+                <label for="choix1_1">Très lent</label>
+
+                <input type="radio" id="choix1_2" name="qust" value="2">
+                <label for="choix1_2">Lent</label>
+
+                <input type="radio" id="choix1_3" name="qust" value="3">
+                <label for="choix1_3">Raisonnable</label>
+
+                <input type="radio" id="choix1_4" name="qust" value="4">
+                <label for="choix1_4">Rapide</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Question 4 </legend>
+            <p>En général, Etes-vous satisfaits de SOCIAL CLUB ?</p>
+            <div class="form-quest">
+                <select id="select" name="liste">
+                    <option value="4">Très bon</option>
+                    <option value="3">Bon</option>
+                    <option value="2">Moyen</option>
+                    <option value="1">Mauvais</option>
+                </select>
+            </div>
+        </fieldset>
+        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="precedent"
+            onclick="precedent()" />
+        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Suivant"
+            onclick="psuivant()" />
+    </form>
+</body>
+
+</html>
