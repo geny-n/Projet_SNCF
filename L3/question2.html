@@ -1,15 +1,30 @@
+<<<<<<< HEAD
 <html>
     <head>
         
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <link rel="stylesheet" type="text/css" href="../style/style_page_identification.css" />
     </head> 
-    <script>
+=======
+<!DOCTYPE html>
+<html lang="en">
 
-        function psuivant(){
-            document.location.href="question3.html"
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style/style_page_identification.css" />
+    <title>Enquete 2</title>
+</head>
+
+<body>
+>>>>>>> 7fc55f34c9fc7ec2621ddcd93fa8de93eb979602
+    <script>
+        function psuivant() {
+            document.location.href = "question3.html"
         }
 
+<<<<<<< HEAD
 
         function precedent(){
             document.location.href="question1-1.html"
@@ -32,127 +47,47 @@
     }
      
      </style>
-
-    </br></br>
-    <div class="class">
-        <fieldset>
-            <center>Bonjour vous voici sur l'enquête de satisfaction celà ne vous prendra que 2 minutes !</center>  <span id=span1></span> 
-    <span id=span2></span>
-        </br>
-    Score : <span id=span3></span> 
-    </fieldset>
-    
-</div>
-</br>
-<div class="page2">
-    <form name="form1">
-        <div class="dropdown">
-        <fieldset>
-            <legend>Question numéro 3</legend>
-                <label class="quest"> Vous sentez-vous en sécurité  en toute circonstance ?</label>
-                 </br><br>
-            <label>
-                <input type="radio" name="qust" id="choix1" value="Oui" onclick="q1=20" >
-                <span class="design"></span>
-                <span class="text">Oui</span>
-            </label>
-                </br><br>
-             <label>
-                <input type="radio" name="qust" id="choix2" value="Moyennement" onClick="q1=10">
-                 <span class="design"></span>
-                <span class="text"> Moyennement</span>
-             </label>
-            </br><br>
-            <label>
-                 <input type="radio" name="qust" id="choix3" value="non"  onClick="q1=5">
-                  <span class="design"></span>
-                  <span class="text"> Non</span>
-            </label>
-        </fieldset>
-        <br/><br/>
-    </div>
-    <div class="dropdown">
-        <fieldset>
-            <legend>Question numéro 4</legend>
-           
-                <div class="dropdown">
-                    <label>En général, Etes-vous satisfaits de SOCIAL CLUB ?</label>
-                    </br><br><br>
-                    <SELECT NAME="Liste" id="select" >
-                        <option value="4">Très bon</option>
-                        <option value="3">Bon</option>
-                        <option value="2">Moyen</option>
-                        <option value="1">Mauvais</option>
-                    </select>
-                </div>
-
-                
-        </fieldset>
-        <div class="div_input_fo">
-            <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Suivant" onclick="calcul3(form1),calcul4(),moy(),psuivant()" />
-            </div>
-            <div class="div_input_suiv">
-                <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Précédent" onclick="getCookie(), precedent()" />
-                </div>
-        <br/><br/>
-    </div>
-    </form>
-
-    </body>
-    <script>
-        /*FOnction qui permet de recuperer la valeur d'un cookie*/
-/*FOnction qui permet de recuperer la valeur d'un cookie*/
-function getCookie(name){
-      if(document.cookie.length == 0)
-        return null;
-
-      var regSepCookie = new RegExp('(; )', 'g');
-      var cookies = document.cookie.split(regSepCookie);
-
-      for(var i = 0; i < cookies.length; i++){
-        var regInfo = new RegExp('=', 'g');
-        var infos = cookies[i].split(regInfo);
-        if(infos[0] == name){
-             return unescape (infos[1]);
+=======
+        function precedent() {
+            document.location.href = "question1.html"
         }
-      }
-      return null;
-    }
-  /*on insere les valeur de cookies dans les input dont les ID sont 'session-nom' et 'session-prenom'*/
-  var prenom = document.getElementById('span1').innerHTML = getCookie('_prenom');
-  var nom = document.getElementById('span2').innerHTML = getCookie('_nom');
-  var note = document.getElementById('span3').innerHTML = getCookie('note');
+    </script>
+    <form>
+        <fieldset>
+            <legend>Question 3</legend>
+            <p>Vous sentez-vous en sécurité en toute circonstance ?</p>
+            <div class="form-quest">
+                <input type="radio" id="choix1_1" name="qust" value="1">
+                <label for="choix1_1">Très lent</label>
 
-  function calcul3(form1){
-    if (form1.qust[0].checked)
-    {
-    document.cookie= "_note3=" + parseInt(4);
-    }else if (form1.qust[1].checked)
-    {
-    document.cookie= "_note3=" +parseFloat(3);
-    }else 
-    {
-    document.cookie= "_note3=" +parseFloat(1);
-    }
+                <input type="radio" id="choix1_2" name="qust" value="2">
+                <label for="choix1_2">Lent</label>
+>>>>>>> 7fc55f34c9fc7ec2621ddcd93fa8de93eb979602
 
-  }
-  function calcul4(form1){
-  var oSelect = document.getElementById("select").value;
-    document.cookie="_note4=" + oSelect;
-  }
+                <input type="radio" id="choix1_3" name="qust" value="3">
+                <label for="choix1_3">Raisonnable</label>
 
-  function moy(){
-    var note = parseInt (getCookie('_note3'));
-  var note = note + parseInt (getCookie('_note4'));
-  var note = note + parseInt (getCookie('note'));
-  document.cookie ="note=" +note;
-  }
+                <input type="radio" id="choix1_4" name="qust" value="4">
+                <label for="choix1_4">Rapide</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Question 4 </legend>
+            <p>En général, Etes-vous satisfaits de SOCIAL CLUB ?</p>
+            <div class="form-quest">
+                <select id="select" name="liste">
+                    <option value="4">Très bon</option>
+                    <option value="3">Bon</option>
+                    <option value="2">Moyen</option>
+                    <option value="1">Mauvais</option>
+                </select>
+            </div>
+        </fieldset>
+        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="precedent"
+            onclick="precedent()" />
+        <input type="button" name="valid_inscr" id="bouton_envoi" class="input_form" value="Suivant"
+            onclick="psuivant()" />
+    </form>
+</body>
 
-
- 
-
-
-</script>
- 
- 
-    </html>
+</html>

@@ -52,7 +52,12 @@ input[type=submit] {
 /* Styling the Body element i.e. Color,
         Font, Alignment */
 body {
-  background-color: #05c46b;
+ /* background-image: url(../images/cafe.jpg);*/
+  background: url(../images/cafe.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: Verdana;
   text-align: center;
 }
@@ -105,7 +110,7 @@ fieldset {
 }
 
 /* Styling Button */
-#button {
+.input_form {
   background-color: #05c46b;
   border: 1px solid #777;
   border-radius: 2px;
