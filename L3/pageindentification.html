@@ -13,45 +13,40 @@
 <script>
 
     function valideNom() {
-        var nom = (document.getElementById("nom").value);
-        nom = nom.toUpperCase(); 
-        if (isNaN(nom)){
+            var nom = document.getElementById("nom").value;
+            nom = nom.toUpperCase();
             document.getElementById("nom").value = nom;
-            document.getElementById("nom").style.borderColor="green";
+            var letters = /^[A-Za-z]+$/;
+                if(nom.match(letters))
+                {
+                    document.getElementById("nom").style.borderColor="green";
+                }else{
+                    alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte !");
+                    document.getElementById("nom").style.borderColor="red";
+                }
         }
-        else{
-            alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte.");
-            document.getElementById("nom").style.borderColor="red";
-            
+    
+            function validePrenom() {
+                var prenom = document.getElementById("prenom").value;
+                prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
+                document.getElementById("prenom").value = prenom;
+                var letters = /^[A-Za-z]+$/;
+                    if(prenom.match(letters))
+                    {
+                        document.getElementById("prenom").style.borderColor="green";
+                    }else{
+                        alert("Merci de ne pas rentrer de nombre mais uniquement votre prénom en texte !");
+                        document.getElementById("prenom").style.borderColor="red";
+                    }
         }
-        
-    }
-
-    function validePrenom() {
-        var prenom = document.getElementById("prenom").value;
-        //valid_prenom= /^[a-zA-Z] + [a-zA-Z]+$/;
-        /*if(valid_prenom.test(prenom)){
-            alert('Invalid name given.');
-        }*/
-       
-        prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
-        document.getElementById("prenom").value = prenom;
-        if (isNaN(parseInt(prenom))){
-            document.getElementById("prenom").value = prenom;
-            document.getElementById("prenom").style.borderColor="green";
-        }
-        else{
-            alert("Merci de ne pas rentrer de nombre mais uniquement votre prénom en texte.");
-            document.getElementById("prenom").style.borderColor="red";
-        }
-
-    }
 
 
     function valideNumero() {
         var num = document.getElementById("telephone").value;
-        if (num.length != 10 || num.charAt(0) != 0 || (num.charAt(1) != 6 && num.charAt(1) != 7)) {
+        document.getElementById("telephone").style.borderColor="green";
+        if (num.length != 10 || isNaN(num)) {
             alert("Veuillez entrer un numéro valide !");
+            document.getElementById("telephone").style.borderColor="red";
         }
  
     }
@@ -59,12 +54,15 @@
 
     function valideAge () {
                 var age = document.getElementById("age").value;
+                document.getElementById("age").style.borderColor="green";
                 if (age<=17){
                     alert("Vous devez être majeur !");
+                    document.getElementById("age").style.borderColor="red";
                 }
                 if (age > 122)
                 {
                     alert(age + " n'est pas valide !");
+                    document.getElementById("age").style.borderColor="red";
                 }
             }
 
@@ -72,17 +70,19 @@
     
     function valideEmail () {
                 var email = document.getElementById("email").value;
+                document.getElementById("email").style.borderColor="green";
                 if (!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
                     alert(email + " n'est pas une adresse valide");
+                    document.getElementById("email").style.borderColor="red";
                 }
-                var cpt1 = 0, ctp =0;
+                /*var cpt1 = 0, ctp =0;
                 for(let i = 0; i <email.length;i++) {
                     if (email.charAt(i) == '@') cpt1++;
                     else if(email.charAt(i)=='.') ctp2++;
                 }
                 if(cpt1 == 1 && ctp2 >= 1) {
                     document.getElementById("email").style.background;
-                }
+                }*/
             }
             
 
@@ -92,7 +92,7 @@
         var sexe = document.getElementById("sexe");
         var nom = document.getElementById("nom");
         var prenom = document.getElementById("prenom");
-        var telephone = document.getElementById("telephone");
+        var num = document.getElementById("telephone");
         var age = document.getElementById("age");
         var email = document.getElementById("email");
 
@@ -141,8 +141,6 @@
 
 </script>
 
-    <!--<body style="background :fixed radial-gradient(crimson, skyblue);"-->
-
     <h2>Formulaire d'identification : </h2>
 
     <form action="" name="pageidentification" method="post" id="form">
@@ -161,11 +159,11 @@
             </select><br><br>
 
             <label for="nom">Nom <em>*</em></label>
-            <input id="nom" placeholder="Entrez votre nom" pattern="[A-Za-z]{50}" required="" onblur="valideNom()"><br><br>
+            <input id="nom" type="text" placeholder="Entrez votre nom" pattern="[A-Za-z]{1}" required="" onblur="valideNom()"><br><br>
 
 
             <label for="prenom">Prénom <em>*</em></label>
-            <input type="text" id="prenom" placeholder="Entrez votre prénom" pattern="[A-Za-z]{50}" required="" onblur="validePrenom()"><br><br>
+            <input id="prenom" type="text" placeholder="Entrez votre prénom" pattern="[A-Za-z]{50}" required="" onblur="validePrenom()"><br><br>
             
 
             <label for="age">Age<em>*</em></label>
