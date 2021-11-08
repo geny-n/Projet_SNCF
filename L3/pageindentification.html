@@ -23,7 +23,9 @@
                 }
                 else
                 {
-                    alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte !");
+                    //alert("Merci de rentrer un nom valide !");
+                    document.getElementById("nom").value=""; 
+                    document.getElementById("nom").placeholder="Merci de rentrer un nom valide !";
                     document.getElementById("nom").style.borderColor="red";
                 }
         }
@@ -33,25 +35,40 @@
                 prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
                 document.getElementById("prenom").value = prenom;
                 var letters = /^[A-Za-z]+$/;
-                //var rien ="";
+                //var rien = null;
                     if(prenom.match(letters))
                     {
                         document.getElementById("prenom").style.borderColor="green";
                     }
                     else
                     {
-                        alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte !");
+                        //alert("Merci de rentrer un prénom valide !");
+                        document.getElementById("prenom").value="";
+                        document.getElementById("prenom").placeholder="Merci de rentrer un prenom valide !";
                         document.getElementById("prenom").style.borderColor="red";
                     }
+                    /*if(!prenom.match(letters))
+                    {
+                        alert("Merci de rentrer un prénom valide !");
+                        document.getElementById("prenom").style.borderColor="red";
+                    }
+                    else if (prenom.match(letters))
+                    {
+                        document.getElementById("prenom").style.borderColor="green";
+                    }else{
+                        document.getElementById("prenom").style.borderColor="red";
+                    }*/
         }
 
 
     function valideNumero() {
-        var num = document.getElementById("telephone").value;
-        document.getElementById("telephone").style.borderColor="green";
-        if (num.length != 10 || isNaN(num)) {
-            alert("Veuillez entrer un numéro valide !");
-            document.getElementById("telephone").style.borderColor="red";
+        var num = document.getElementById("num").value;
+        document.getElementById("num").style.borderColor="green";
+        if (num.length != 10 || isNaN(num)) 
+        {
+            document.getElementById("num").value="";
+            document.getElementById("num").placeholder="Veuillez entrer un numéro valide !";
+            document.getElementById("num").style.borderColor="red";
         }
  
     }
@@ -61,12 +78,14 @@
                 var age = document.getElementById("age").value;
                 document.getElementById("age").style.borderColor="green";
                 if (age<=17){
-                    alert("Vous devez être majeur !");
+                    document.getElementById("age").value="";
+                    document.getElementById("age").placeholder="Vous devez être majeur !";
                     document.getElementById("age").style.borderColor="red";
                 }
                 if (age > 122)
                 {
-                    alert(age + " n'est pas valide !");
+                    document.getElementById("age").value="";
+                    document.getElementById("age").placeholder="Félicitation mais vous êtes trop vieux !";
                     document.getElementById("age").style.borderColor="red";
                 }
             }
@@ -76,8 +95,10 @@
     function valideEmail () {
                 var email = document.getElementById("email").value;
                 document.getElementById("email").style.borderColor="green";
-                if (!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
-                    alert(email + " n'est pas une adresse valide");
+                if (!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) 
+                {   
+                    document.getElementById("email").value="";
+                    document.getElementById("email").placeholder="Veuillez entrer un email valide ! ";
                     document.getElementById("email").style.borderColor="red";
                 }
                 /*var cpt1 = 0, ctp =0;
@@ -174,8 +195,8 @@
             <input id="age" type="number" placeholder="Votre âge" required="" onblur="valideAge()"><br><br>
 
 
-            <label for="telephone">Portable<em>*</em></label>
-            <input id="telephone" placeholder="Entrez votre numéro" maxlength="10" onblur="valideNumero()"><br><br>
+            <label for="num">Portable<em>*</em></label>
+            <input id="num" placeholder="Entrez votre numéro" maxlength="10" onblur="valideNumero()"><br><br>
 
 
             <label for="email">Email <em>*</em></label>
