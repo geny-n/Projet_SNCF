@@ -20,7 +20,9 @@
                 if(nom.match(letters))
                 {
                     document.getElementById("nom").style.borderColor="green";
-                }else{
+                }
+                else
+                {
                     alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte !");
                     document.getElementById("nom").style.borderColor="red";
                 }
@@ -31,11 +33,14 @@
                 prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
                 document.getElementById("prenom").value = prenom;
                 var letters = /^[A-Za-z]+$/;
+                //var rien ="";
                     if(prenom.match(letters))
                     {
                         document.getElementById("prenom").style.borderColor="green";
-                    }else{
-                        alert("Merci de ne pas rentrer de nombre mais uniquement votre prénom en texte !");
+                    }
+                    else
+                    {
+                        alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte !");
                         document.getElementById("prenom").style.borderColor="red";
                     }
         }
@@ -102,7 +107,6 @@
         } else {
             document.location.href = "question1.html";
         }
-
 
     }
 
