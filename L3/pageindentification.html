@@ -118,11 +118,11 @@
         var sexe = document.getElementById("sexe");
         var nom = document.getElementById("nom");
         var prenom = document.getElementById("prenom");
-        var num = document.getElementById("telephone");
+        var num = document.getElementById("num");
         var age = document.getElementById("age");
         var email = document.getElementById("email");
 
-        if (nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity
+        if (nom.validity.valueMissing || prenom.validity.valueMissing || num.validity.valueMissing || age.validity
             .valueMissing || email.validity.valueMissing || sexe.validity.valueMissing) {
             alert("veuillez remplir tous les champs");
         } else {
@@ -142,7 +142,7 @@
         myCookies["_prenom"] = document.getElementById("prenom").value;
         myCookies["_sexe"] = document.getElementById("sexe").value;
         myCookies["_age"] = document.getElementById("age").value;
-        myCookies["_telephone"] = document.getElementById("telephone").value;
+        myCookies["_num"] = document.getElementById("num").value;
         myCookies["_email"] = document.getElementById("email").value;
         myCookies["note"] = "0";
         myCookies["_note"] = "0";
