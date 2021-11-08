@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="..\style\style_page_identification.css"
+        media="all" />
+    <title>Page d'identification</title>
+</head>
+
+<script>
+
+    function valideNom() {
+        var nom = (document.getElementById("nom").value);
+        nom = nom.toUpperCase(); 
+        if (isNaN(nom)){
+            document.getElementById("nom").value = nom;
+            document.getElementById("nom").style.borderColor="green";
+        }
+        else{
+            alert("Merci de ne pas rentrer de nombre mais uniquement votre nom en texte.");
+            document.getElementById("nom").style.borderColor="red";
+            
+        }
+        
+    }
+
+    function validePrenom() {
+        var prenom = document.getElementById("prenom").value;
+        //valid_prenom= /^[a-zA-Z] + [a-zA-Z]+$/;
+        /*if(valid_prenom.test(prenom)){
+            alert('Invalid name given.');
+        }*/
+       
+        prenom = prenom.charAt(0).toUpperCase() + prenom.substring(1).toLowerCase();
+        document.getElementById("prenom").value = prenom;
+        if (isNaN(parseInt(prenom))){
+            document.getElementById("prenom").value = prenom;
+            document.getElementById("prenom").style.borderColor="green";
+        }
+        else{
+            alert("Merci de ne pas rentrer de nombre mais uniquement votre prénom en texte.");
+            document.getElementById("prenom").style.borderColor="red";
+        }
+
+    }
+
+
+    function valideNumero() {
+        var num = document.getElementById("telephone").value;
+        if (num.length != 10 || num.charAt(0) != 0 || (num.charAt(1) != 6 && num.charAt(1) != 7)) {
+            alert("Veuillez entrer un numéro valide !");
+        }
+ 
+    }
+
+
+    function valideAge () {
+                var age = document.getElementById("age").value;
+                if (age<=17){
+                    alert("Vous devez être majeur !");
+                }
+                if (age > 122)
+                {
+                    alert(age + " n'est pas valide !");
+                }
+            }
+
+    
+    
+    function valideEmail () {
+                var email = document.getElementById("email").value;
+                if (!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
+                    alert(email + " n'est pas une adresse valide");
+                }
+                var cpt1 = 0, ctp =0;
+                for(let i = 0; i <email.length;i++) {
+                    if (email.charAt(i) == '@') cpt1++;
+                    else if(email.charAt(i)=='.') ctp2++;
+                }
+                if(cpt1 == 1 && ctp2 >= 1) {
+                    document.getElementById("email").style.background;
+                }
+            }
+            
+
+
+
+    function validation() {
+        var sexe = document.getElementById("sexe");
+        var nom = document.getElementById("nom");
+        var prenom = document.getElementById("prenom");
+        var telephone = document.getElementById("telephone");
+        var age = document.getElementById("age");
+        var email = document.getElementById("email");
+
+        if (nom.validity.valueMissing || prenom.validity.valueMissing || telephone.validity.valueMissing || age.validity
+            .valueMissing || email.validity.valueMissing || sexe.validity.valueMissing) {
+            alert("veuillez remplir tous les champs");
+        } else {
+            document.location.href = "question1.html";
+        }
+
+
+    }
+
+
+
+
+    var myCookies = [];
+
+    function Cookies(name) {
+
+        myCookies["_nom"] = document.getElementById("nom").value;
+        myCookies["_prenom"] = document.getElementById("prenom").value;
+        myCookies["_sexe"] = document.getElementById("sexe").value;
+        myCookies["_age"] = document.getElementById("age").value;
+        myCookies["_telephone"] = document.getElementById("telephone").value;
+        myCookies["_email"] = document.getElementById("email").value;
+        myCookies["note"] = "0";
+        myCookies["_note"] = "0";
+        myCookies["_note2"] = "0";
+        myCookies["_note3"] = "0";
+        myCookies["_note4"] = "0";
+        myCookies["_note5"] = "0";
+        myCookies["_note6"] = "0";
+        myCookies["moyenne"] = "0";
+
+        // Démarrer la section réutilisable
+        // Démarrer la section réutilisable
+        document.cookie = "";
+        var expiresAttrib = new Date(Date.now() + 60 * 1000).toString();
+        var cookieString = "";
+        for (var key in myCookies) {
+            cookieString = key + "=" + myCookies[key] + ";" + expiresAttrib + ";";
+            document.cookie = cookieString;
+        }
+    }
+
+</script>
+
+    <!--<body style="background :fixed radial-gradient(crimson, skyblue);"-->
+
+    <h2>Formulaire d'identification : </h2>
+
+    <form action="" name="pageidentification" method="post" id="form">
+
+        <p><i>Complétez le formulaire. Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
+        <fieldset>
+            <legend>Information</legend>
+
+        <div class="form-control">
+
+            <label for="sexe">Sexe</label>
+            <select id="sexe">
+                <option value="F" name="sexe">Femme</option>
+                <option value="H" name="sexe">Homme</option>
+                <option value="?"  name ="">Autre...</option>
+            </select><br><br>
+
+            <label for="nom">Nom <em>*</em></label>
+            <input id="nom" placeholder="Entrez votre nom" pattern="[A-Za-z]{50}" required="" onblur="valideNom()"><br><br>
+
+
+            <label for="prenom">Prénom <em>*</em></label>
+            <input type="text" id="prenom" placeholder="Entrez votre prénom" pattern="[A-Za-z]{50}" required="" onblur="validePrenom()"><br><br>
+            
+
+            <label for="age">Age<em>*</em></label>
+            <input id="age" type="number" placeholder="Votre âge" required="" onblur="valideAge()"><br><br>
+
+
+            <label for="telephone">Portable<em>*</em></label>
+            <input id="telephone" placeholder="Entrez votre numéro" maxlength="10" onblur="valideNumero()"><br><br>
+
+
+            <label for="email">Email <em>*</em></label>
+            <input id="email" type="email" placeholder="Entrez votre email" required="" onblur="valideEmail()"><br>
+        
+        </div>
+        </fieldset>
+        
+        <br>
+        <input type="button" name="valid_inscr" id="button" class="input_form" value="Valider"
+            onclick="validation(), Cookies()" />  
+        
+</body>
+
+</html>
